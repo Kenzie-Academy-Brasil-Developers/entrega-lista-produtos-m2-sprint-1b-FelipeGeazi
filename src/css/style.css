@@ -2,7 +2,9 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
 /* CABEÇALHO */
+
 .filtersContainer {
     display: flex;
     justify-content: space-evenly;
@@ -10,7 +12,7 @@ body {
     padding: 30px;
 }
 
-.estiloGeralBotoes{
+.estiloGeralBotoes {
     border: none;
     font-weight: bold;
     border-radius: 5px;
@@ -47,8 +49,14 @@ body {
     border-radius: 0 5px 5px 0;
 }
 
+
 /* CONTEÚDO */
-main{}
+
+main {
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 20px;
+}
 
 .containerListaProdutos {
     width: 100%;
@@ -60,7 +68,9 @@ main{}
     list-style: none;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid red
 }
 
 .containerListaProdutos ul li {
@@ -71,6 +81,16 @@ main{}
     border-radius: 5px;
     transition: ease-in-out .1s;
     width: 20%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.containerListaProdutos ul li div {
+    border: 1px solid red;
+    width: 100%;
 }
 
 .containerListaProdutos ul li:hover {
@@ -80,28 +100,34 @@ main{}
 .containerListaProdutos ul li img {
     width: 100%;
     max-width: 80px;
+    border: 1px solid red
 }
 
 .containerListaProdutos ul li h3 {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
 }
 
 .containerListaProdutos ul li p {
-    font-size: 1.5rem;
-}
-.containerListaProdutos ul li span {
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-top: 10px;
-    display: inline-block;
+    /* font-size: 1.5rem; */
 }
 
+.containerListaProdutos ul li span {
+    font-size: 0.8rem;
+    /*  font-weight: 500;
+    margin-top: 10px;  */
+    /*  display: inline-block; */
+}
+
+
 /* PREÇO TOTAL */
-.containerPrecoTotal{
+
+.containerPrecoTotal {
     text-align: center;
 }
-.containerPrecoTotal p{
+
+.containerPrecoTotal p {
     font-size: 1.4rem;
     font-weight: 600;
 }
-.containerPrecoTotal p span{}
+
+.containerPrecoTotal p span {}
