@@ -1,4 +1,17 @@
+function montarDados(listaProdutos) {
+    for (let contador = 0; contador < listaProdutos.length; contador++) {
+        const product = listaProdutos[contador];
+        montaCard(product);
+
+    }
+    somaTotal(listaProdutos)
+}
+
+montarDados(produtos)
+
+
 function montaCard(product) {
+
     const listaProdutos = document.querySelector("ul")
     listaProdutos.classList.add("containerListaProdutos")
 
@@ -8,12 +21,17 @@ function montaCard(product) {
     const imagens = criaImage(product)
     const texto = montaTexto(product)
 
-
+    const valorTotal = document.querySelector("#precoTotal")
+    valorTotal.innerText = somaTotal(produtos)
 
     card.append(imagens, texto)
     listaProdutos.append(card)
 
 }
+
+
+
+
 
 function criaImage(product) {
     const image = document.createElement('img')
@@ -31,30 +49,47 @@ function montaTexto(product) {
     name.innerText = product.nome;
 
 
-    const valor = document.createElement('p');
+    var valor = document.createElement('p');
     valor.classList.add("containerListaProdutos");
-    valor.innerText = `R$ ${product.preco},00`
+    valor.innerText = ` R$ ${product.preco},00 `
+        /* const valorNumero = parseInt(valor) */
 
-    const categoria = document.createElement('span');
+
+    var categoria = document.createElement('span');
     categoria.classList.add("containerListaProdutos");
-    categoria.innerText = `Seção - ${product.secao}`
+    categoria.innerText = ` ${product.secao}`
 
     text.append(name, valor, categoria)
     return text
 
-
 }
 
-
-
-
-
-function montarDados(listaFrutas) {
-    for (let contador = 0; contador < listaFrutas.length; contador++) {
-        const product = listaFrutas[contador];
-        montaCard(product);
-        console.log(montaCard)
+function somaTotal(listaProdutos) {
+    let result = 0
+    for (let i = 0; i < listaProdutos.length; i++) {
+        result += listaProdutos[i].preco
     }
 
+    return `${result},00`
 }
-montarDados(produtos)
+
+
+
+
+// filtrando por secao com filter
+function filtrarPorHotifruti() {
+    const listaProdutos = document.querySelector("ul")
+    listaProdutos.innerHTML = ""
+    const listaHortifruti = produtos.filter((produto) => {
+        return produto.secao === 'Hortifruti'
+    })
+    montarDados(listaHortifruti)
+
+}
+
+//filtrarPorHotifruti()
+//adicionando o event listener de clique e executando a função filter
+const buttonHortFrut = document.querySelector('.estiloGeralBotoes--filtrarHortifruti')
+buttonHortFrut.addEventListener('click', function() {
+    filtrarPorHotifruti()
+})
