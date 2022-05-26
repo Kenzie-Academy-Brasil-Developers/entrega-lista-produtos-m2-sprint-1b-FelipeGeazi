@@ -1,7 +1,7 @@
 function montarDados(listaProdutos) {
     for (let contador = 0; contador < listaProdutos.length; contador++) {
         const product = listaProdutos[contador];
-        montaCard(product);
+        montaCard(product, listaProdutos);
 
     }
     somaTotal(listaProdutos)
@@ -10,7 +10,7 @@ function montarDados(listaProdutos) {
 montarDados(produtos)
 
 
-function montaCard(product) {
+function montaCard(product, listaProduto) {
 
     const listaProdutos = document.querySelector("ul")
     listaProdutos.classList.add("containerListaProdutos")
@@ -22,7 +22,7 @@ function montaCard(product) {
     const texto = montaTexto(product)
 
     const valorTotal = document.querySelector("#precoTotal")
-    valorTotal.innerText = somaTotal(produtos)
+    valorTotal.innerText = somaTotal(listaProduto)
 
     card.append(imagens, texto)
     listaProdutos.append(card)
@@ -80,6 +80,7 @@ function somaTotal(listaProdutos) {
 function filtrarPorHotifruti() {
     const listaProdutos = document.querySelector("ul")
     listaProdutos.innerHTML = ""
+
     const listaHortifruti = produtos.filter((produto) => {
         return produto.secao === 'Hortifruti'
     })
@@ -90,6 +91,32 @@ function filtrarPorHotifruti() {
 //filtrarPorHotifruti()
 //adicionando o event listener de clique e executando a função filter
 const buttonHortFrut = document.querySelector('.estiloGeralBotoes--filtrarHortifruti')
-buttonHortFrut.addEventListener('click', function() {
-    filtrarPorHotifruti()
-})
+
+buttonHortFrut.addEventListener('click', filtrarPorHotifruti)
+
+
+
+function filtrarTodos(event) {
+    const listaTodos = document.querySelector("ul")
+    listaTodos.innerHTML = ""
+
+    montarDados(produtos)
+
+
+}
+
+const buttonTodos = document.querySelector('.estiloGeralBotoes--mostrarTodos')
+buttonTodos.addEventListener('click', filtrarTodos)
+
+
+
+function buscarNome() {
+    const textoPesquisa = document.querySelector(".campoBuscaPorNome").value
+    console.log(textoPesquisa.toLowerCase())
+
+}
+
+
+const buttonPesquisar = document.querySelector(".estiloGeralBotoes--botaoBuscaPorNome")
+console.log(buttonPesquisar)
+buttonPesquisar.addEventListener('click', buscarNome)
