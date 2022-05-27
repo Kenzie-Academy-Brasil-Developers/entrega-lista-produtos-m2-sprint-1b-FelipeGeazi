@@ -88,11 +88,38 @@ function filtrarPorHotifruti() {
 
 }
 
+/* function filtrarPanificacao() {
+    const listaProdutos = document.querySelector("ul")
+    listaProdutos.innerHTML = ""
+
+    const listaPani = produtos.filter((produto) => {
+        return produto.secao === 'Panificadora'
+    })
+    montarDados(listaPani)
+
+}
+
+function filtrarLaticio() {
+    const listaProdutos = document.querySelector("ul")
+    listaProdutos.innerHTML = ""
+
+    const listaLaticinio = produtos.filter((produto) => {
+        return produto.secao === 'Laticínio'
+    })
+    montarDados(listaLaticinio)
+
+} */
+
 //filtrarPorHotifruti()
 //adicionando o event listener de clique e executando a função filter
-const buttonHortFrut = document.querySelector('.estiloGeralBotoes--filtrarHortifruti')
-
+const buttonHortFrut = document.querySelector('#botaoFruts')
 buttonHortFrut.addEventListener('click', filtrarPorHotifruti)
+
+/* const buttonPani = document.querySelector('#botaoPanificadora')
+buttonHortFrut.addEventListener('click', filtrarPanificacao)
+
+const buttonLaticinio = document.querySelector('#botaoLaticinios')
+buttonHortFrut.addEventListener('click', filtrarLaticio) */
 
 
 
@@ -109,14 +136,19 @@ const buttonTodos = document.querySelector('.estiloGeralBotoes--mostrarTodos')
 buttonTodos.addEventListener('click', filtrarTodos)
 
 
-
+// barra de pesquisa
 function buscarNome() {
+    const listaTodos = document.querySelector("ul")
+    listaTodos.innerHTML = ""
+
     const textoPesquisa = document.querySelector(".campoBuscaPorNome").value
-    console.log(textoPesquisa.toLowerCase())
+    let procura = textoPesquisa.toLowerCase()
+
+    const produtoPesquisado = produtos.filter((produto) => produto.nome.toLowerCase() === procura)
+
+
+    montarDados(produtoPesquisado)
 
 }
-
-
 const buttonPesquisar = document.querySelector(".estiloGeralBotoes--botaoBuscaPorNome")
-console.log(buttonPesquisar)
 buttonPesquisar.addEventListener('click', buscarNome)

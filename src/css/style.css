@@ -23,12 +23,12 @@ body {
 }
 
 .estiloGeralBotoes--mostrarTodos {
-    color: black;
-    background-color: #d3d3d3;
+    color: #ffffff;
+    background-color: #12B886;
 }
 
 .estiloGeralBotoes--filtrarHortifruti {
-    background-color: tomato;
+    background-color: #12B886;
     color: white;
 }
 
@@ -44,7 +44,7 @@ body {
 }
 
 .estiloGeralBotoes--botaoBuscaPorNome {
-    background-color: rgb(17, 17, 20);
+    background-color: #12B886;
     color: white;
     border-radius: 0 5px 5px 0;
 }
@@ -70,7 +70,6 @@ main {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    border: 1px solid red
 }
 
 .containerListaProdutos ul li {
@@ -81,16 +80,24 @@ main {
     border-radius: 5px;
     transition: ease-in-out .1s;
     width: 20%;
-    border: 1px solid red;
+    border: 1px solid #12B886;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
+    background-color: #ffffff;
 }
 
 .containerListaProdutos ul li div {
-    border: 1px solid red;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-items: flex-start;
+    align-content: flex-start;
 }
 
 .containerListaProdutos ul li:hover {
@@ -98,24 +105,35 @@ main {
 }
 
 .containerListaProdutos ul li img {
-    width: 100%;
+    border-radius: 8px;
     max-width: 80px;
-    border: 1px solid red
 }
 
 .containerListaProdutos ul li h3 {
-    /* font-size: 1.5rem; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
 }
 
 .containerListaProdutos ul li p {
-    /* font-size: 1.5rem; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    /* identical to box height, or 133% */
 }
 
 .containerListaProdutos ul li span {
-    font-size: 0.8rem;
-    /*  font-weight: 500;
-    margin-top: 10px;  */
-    /*  display: inline-block; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: #12B886;
+    color: #ffffff;
 }
 
 
