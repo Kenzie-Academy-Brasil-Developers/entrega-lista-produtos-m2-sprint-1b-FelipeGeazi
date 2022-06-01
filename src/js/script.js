@@ -93,6 +93,7 @@ function montaComponentes(lista) {
     let ol = document.createElement("ol")
     lista.forEach((element, index) => {
         let item = document.createElement("p")
+        item.classList.add("componentesProduto")
         item.innerText = `${index + 1}. ${element}`
         ol.append(item)
     });
@@ -182,11 +183,20 @@ function buscarNome() {
     const textoPesquisa = document.querySelector(".campoBuscaPorNome").value
     let procura = textoPesquisa.toLowerCase()
 
-    const produtoPesquisado = produtos.filter((produto) => produto.nome.toLowerCase() === procura)
 
+
+    const produtoPesquisado = produtos.filter((produto) =>
+        produto.nome.toLowerCase().includes(procura.trim()) ||
+        produto.categoria.toLowerCase().includes(procura.trim()) ||
+        produto.secao.toLowerCase().includes(procura.trim()))
 
     montarDados(produtoPesquisado)
-
 }
+
+
 const buttonPesquisar = document.querySelector(".estiloGeralBotoes--botaoBuscaPorNome")
 buttonPesquisar.addEventListener('click', buscarNome)
+
+
+const pesquisaInput = document.querySelector(".campoBuscaPorNome")
+pesquisaInput.addEventListener('keypress', buscarNome)
