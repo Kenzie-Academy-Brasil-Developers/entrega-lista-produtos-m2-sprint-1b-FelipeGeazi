@@ -72,7 +72,7 @@ main {
     flex-wrap: wrap;
 }
 
-.containerListaProdutos ul li {
+.itemListaCard {
     color: black;
     font-weight: bold;
     padding: 20px;

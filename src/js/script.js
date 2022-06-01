@@ -16,15 +16,19 @@ function montaCard(product, listaProduto) {
     listaProdutos.classList.add("containerListaProdutos")
 
     const card = document.createElement("li")
-    card.classList.add("containerListaProdutos")
+    card.classList.add("itemListaCard")
 
     const imagens = criaImage(product)
     const texto = montaTexto(product)
 
+    const bttComprar = document.createElement("button")
+    bttComprar.classList.add("bttComprar")
+    bttComprar.innerText = "Comprar"
+
     const valorTotal = document.querySelector("#precoTotal")
     valorTotal.innerText = somaTotal(listaProduto)
 
-    card.append(imagens, texto)
+    card.append(imagens, texto, bttComprar)
     listaProdutos.append(card)
 
 }
@@ -59,10 +63,44 @@ function montaTexto(product) {
     categoria.classList.add("containerListaProdutos");
     categoria.innerText = ` ${product.secao}`
 
-    text.append(name, valor, categoria)
+
+    const divComponentes = montaComponentes(product.componentes)
+
+
+
+    text.append(name, categoria, divComponentes, valor)
     return text
 
 }
+
+
+/* function montaComponentes(lista) {
+    let ol = document.createElement("ol")
+    for (let i = 0; i < lista.length; i++) {
+        let item = document.createElement("p")
+        item.innerText = lista[i]
+        console.log(lista[i])
+        ol.append(item)
+    }
+    return ol
+
+
+}
+ */
+//  mesma coisa que em cima 👇👇👇👇👇👇
+
+function montaComponentes(lista) {
+    let ol = document.createElement("ol")
+    lista.forEach((element, index) => {
+        let item = document.createElement("p")
+        item.innerText = `${index + 1}. ${element}`
+        ol.append(item)
+    });
+    return ol
+}
+
+
+
 
 function somaTotal(listaProdutos) {
     let result = 0
